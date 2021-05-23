@@ -4,7 +4,7 @@ import Contacts from "../../components/Contacts/Contacts";
 import CreateContact from "../../components/Contacts/CreateContact";
 
 const Dashboard = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false); // for createContact Modal
 
   return (
     <div className="dashboard">

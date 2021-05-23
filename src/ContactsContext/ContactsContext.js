@@ -14,6 +14,7 @@ const ContactsContextProvider = (props) => {
     contacts: [],
   });
 
+  // fetch the contacts
   const fetchContacts = useCallback(async () => {
     dispatch({ type: "FETCHING_CONTACTS" });
     dispatch({ type: "UPDATE_FETCHING_ERROR", error: "" });
@@ -24,6 +25,8 @@ const ContactsContextProvider = (props) => {
         snapshot.forEach((doc) => {
           // console.log(doc.id, "=>", doc.data());
 
+          // make sure to populate only docs which were created by current user
+          // also make sure doc has firstName for use in green circle div
           if (doc.data().firstName && doc.data().userId === user.id)
             dispatch({
               type: "ADD_CONTACT",
@@ -50,6 +53,7 @@ const ContactsContextProvider = (props) => {
     if (mounted) fetchContacts();
 
     return () => {
+      // cleanup
       mounted = false;
     };
   }, [fetchContacts]);

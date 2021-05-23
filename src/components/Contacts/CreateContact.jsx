@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import PropTypes from "prop-types";
 import { Modal } from "react-bootstrap";
 import { ContactsContext } from "../../ContactsContext/ContactsContext";
 import { createContact } from "../../API_CALLS/mainAPIs";
@@ -6,7 +7,7 @@ import { isAuthenticated } from "../../API_CALLS/authAPIs";
 import ShowError from "../Utilities/ShowError";
 import LoadingButton from "../Utilities/LoadingButton";
 
-const CreateContact = (props) => {
+const CreateContact = ({ show, onHide, close }) => {
   let { utils, dispatch } = useContext(ContactsContext);
 
   const { error, loading } = utils;
@@ -28,7 +29,7 @@ const CreateContact = (props) => {
   }
 
   // to close the modal after contact it created
-  const handleClose = () => props.close(false);
+  const handleClose = () => close(false);
 
   const sendContactToDatabase = (details) => {
     dispatch({ type: "UPDATE_LOADING", loading: true });
@@ -99,7 +100,9 @@ const CreateContact = (props) => {
 
   return (
     <Modal
-      {...props}
+      animation={false}
+      show={show}
+      onHide={onHide}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -169,17 +172,19 @@ const CreateContact = (props) => {
               Create
             </button>
           )}
-          <button
-            type="button"
-            className="btn btn-outline"
-            onClick={props.onHide}
-          >
+          <button type="button" className="btn btn-outline" onClick={onHide}>
             Cancel
           </button>
         </Modal.Footer>
       </form>
     </Modal>
   );
+};
+
+CreateContact.propTypes = {
+  close: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  onHide: PropTypes.func.isRequired,
 };
 
 export default CreateContact;
