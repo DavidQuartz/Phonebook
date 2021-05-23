@@ -1,4 +1,3 @@
-// import { v4 as uuidv4 } from "uuid";
 import database from "../FireBase/firebase.config";
 
 export const contactsReducer = (state, action) => {
@@ -41,7 +40,7 @@ export const contactsReducer = (state, action) => {
         ...state,
         contacts: [
           {
-            id: action.newContact.id, // only used in the front-end to uniquely identify contacts
+            id: action.newContact.id,
             firstName: action.newContact.firstName,
             lastName: action.newContact.lastName,
             phoneNumber: action.newContact.phoneNumber,
