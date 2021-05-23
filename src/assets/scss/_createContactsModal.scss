@@ -1,0 +1,55 @@
+/* -------- Modal -------- */
+
+.modal-lg,
+.modal-xl {
+  max-width: 40rem;
+  margin: auto;
+}
+
+.modal-content {
+  padding: 2rem;
+  padding-bottom: 0;
+
+  .alert.alert-danger {
+    margin-bottom: 2rem;
+  }
+}
+
+.modal-header,
+.modal-footer,
+.modal-body {
+  border: none;
+}
+
+.modal-header {
+  font-family: $century-gothic-bold;
+  color: $green;
+  .close {
+    display: none;
+  }
+}
+.modal-footer {
+  justify-content: center;
+
+  .btn.btn-primary {
+    margin-bottom: 1rem;
+  }
+}
+
+.create-contact {
+  input {
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  ::-webkit-input-placeholder {
+    color: hsla(157, 100%, 29%, 0.5);
+  }
+}
+
+@media #{$xs-layout} {
+  .modal-lg,
+  .modal-xl {
+    max-width: 35rem;
+  }
+}

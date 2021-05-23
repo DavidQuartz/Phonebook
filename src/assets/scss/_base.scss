@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "GOTHIC";
+  src: url("../Fonts/GOTHIC/GOTHIC.woff") format("woff"),
+    url("../Fonts/GOTHIC/GOTHIC.woff2") format("woff2"),
+    url("../Fonts/GOTHIC/GOTHIC.svg#GOTHIC") format("svg"),
+    url("../Fonts/GOTHIC/GOTHIC.eot"),
+    url("../Fonts/GOTHIC/GOTHIC.eot?#iefix") format("embedded-opentype"),
+    url("../Fonts/GOTHIC/GOTHIC.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GOTHICB";
+  src: url("../Fonts/GOTHICB/GOTHICB.woff") format("woff"),
+    url("../Fonts/GOTHICB/GOTHICB.woff2") format("woff2"),
+    url("../Fonts/GOTHICB/GOTHICB.svg#GOTHICB") format("svg"),
+    url("../Fonts/GOTHICB/GOTHICB.eot"),
+    url("../Fonts/GOTHICB/GOTHICB.eot?#iefix") format("embedded-opentype"),
+    url("../Fonts/GOTHICB/GOTHICB.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $century-gothic;
+  background-color: #f8fffc !important;
+  background-size: cover;
+  color: #1a1a1a;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+  font-size: 65%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: $century-gothic-bold;
+  font-weight: 700;
+}
+
+input[type="text"]:focus,
+input[type="sumbit"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid $green !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn.btn-outline {
+  width: 100%;
+  border: none;
+  font-family: $century-gothic-bold;
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  height: 5rem;
+
+  &:focus {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn.btn-primary {
+  background-color: $green;
+}
+.btn.btn-secondary {
+  background-color: $lightgreen;
+  color: $green;
+}
+.btn.btn-outline {
+  border: 1px solid $grey;
+  color: $grey;
+}
+
+.alert {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}

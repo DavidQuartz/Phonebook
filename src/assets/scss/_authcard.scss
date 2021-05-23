@@ -1,0 +1,54 @@
+.card.auth-card {
+  transform: translateY(40%);
+  padding: 4rem 5rem;
+  max-width: 46rem;
+  border: 1px solid $lightergrey;
+
+  h1,
+  label {
+    color: $green;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  label,
+  input {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    padding: 1rem;
+    margin-bottom: 3rem;
+    &:active {
+      outline: none;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: hsla(157, 100%, 29%, 0.5);
+  }
+
+  // tablet and mobile
+  @media #{$xs-layout} {
+    transform: translateY(15%);
+    border: none;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    label,
+    input {
+      font-size: 1.3rem;
+    }
+  }
+}

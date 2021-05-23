@@ -1,0 +1,167 @@
+.dashboard {
+  width: 100%;
+  padding-top: 10rem;
+
+  .row {
+    padding: $left-right-padding;
+  }
+
+  .btn.btn-primary {
+    margin-bottom: 2rem;
+  }
+
+  span,
+  p {
+    color: $green;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .card {
+    padding: 3rem;
+    padding-bottom: 6rem;
+    max-height: 50rem;
+  }
+
+  .table {
+    color: $green;
+    margin-bottom: 0;
+
+    & > :not(caption) > * > * {
+      border-bottom-width: 0;
+    }
+
+    .row {
+      padding: 0;
+    }
+
+    thead {
+      border-bottom: 1px solid $lightergrey;
+      //   padding: 3rem;
+    }
+
+    tr.contact-row {
+      &:hover {
+        background-color: $lightgreen;
+
+        td i {
+          display: inline-block;
+        }
+      }
+    }
+
+    th,
+    td {
+      font-size: 1.5rem;
+      vertical-align: middle;
+      padding: 1.2rem 1rem;
+    }
+
+    th,
+    span,
+    .contact-circle {
+      font-family: $century-gothic-bold;
+    }
+
+    th {
+      height: 7rem;
+    }
+
+    td {
+      font-weight: 500;
+      &:not(:last-of-type) {
+        width: 40rem;
+      }
+
+      &:first-of-type {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-circle {
+        height: 3.2rem;
+        width: 3.2rem;
+        // margin-right: 1.5rem;
+        background-color: $green;
+        color: white;
+        text-align: center;
+        font-size: 1.7rem;
+        border-radius: 50%;
+      }
+
+      &:last-of-type {
+        text-align: right;
+        position: relative;
+
+        i {
+          position: absolute;
+          cursor: pointer;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: all 0.5s ease;
+          display: none;
+        }
+
+        .fa-pencil-alt {
+          margin-right: 3rem;
+          text-decoration: underline;
+          &:hover {
+            // cursor: pointer;
+            width: 2rem;
+            right: 0.8rem;
+          }
+        }
+      }
+    }
+
+    span {
+      color: #00955c94;
+      padding-left: 1rem;
+    }
+  }
+
+  .mobile-buttons {
+    width: 40rem;
+
+    .dashboard-buttons {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 2rem;
+    }
+  }
+
+  @media #{$xs-layout} {
+    padding-top: 6rem;
+    .card {
+      padding: 1rem;
+      max-height: 55rem;
+    }
+    .mobile-buttons {
+      .dashboard-buttons {
+        bottom: 0.5rem;
+      }
+    }
+  }
+
+  @media #{$xxs-layout} {
+    .card {
+      max-height: 42rem;
+    }
+  }
+
+  @media only screen and (max-height: 400px) {
+    .card {
+      padding: 1rem;
+      max-height: 14rem;
+    }
+    .mobile-buttons {
+      .dashboard-buttons {
+        bottom: 0rem;
+      }
+    }
+  }
+}

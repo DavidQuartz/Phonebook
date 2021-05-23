@@ -1,0 +1,45 @@
+.navbar {
+  position: fixed;
+  padding: $left-right-padding;
+  height: 6.4rem;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 3px 6px #4eb99029;
+  z-index: 9999999;
+
+  h1,
+  h1 ~ button {
+    color: $green;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+
+    & ~ button {
+      font-size: 1.4rem;
+      font-weight: 700;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:focus {
+        outline: 1px solid $green;
+        outline-offset: 1rem;
+      }
+    }
+  }
+
+  @media #{$xs-layout} {
+    height: 5rem;
+    h1 {
+      font-size: 2rem;
+
+      & ~ button {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
