@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 import { ContactsContext } from "../../ContactsContext/ContactsContext";
 import ShowError from "../Utilities/ShowError";
 import LoadingButton from "../Utilities/LoadingButton";
+import Avatar from "../Avatar/Avatar";
 
 const UpdateContact = ({ show, onHide, close, contact }) => {
   let { utils, dispatch } = useContext(ContactsContext);
@@ -68,9 +69,7 @@ const UpdateContact = ({ show, onHide, close, contact }) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <div className="contact-circle large">
-            {firstName && firstName.split("")[0].toUpperCase()}
-          </div>
+          <Avatar name={firstName} className="contact-circle large" />
         </Modal.Title>
       </Modal.Header>
       <form className="create-contact" onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UpdateContact from "./UpdateContact";
+import Avatar from "../Avatar/Avatar";
 
 const Contact = ({ contact, dispatch }) => {
   const [updateContactModal, setUpdateContactModal] = useState(false); // for createContact Modal
@@ -9,9 +10,7 @@ const Contact = ({ contact, dispatch }) => {
       <tr className="contact-row">
         <td>
           <div className="col-1">
-            <div className="contact-circle">
-              {contact.firstName.split("")[0].toUpperCase()}
-            </div>
+            <Avatar name={contact.firstName} className="contact-circle" />
           </div>
           <div className="col-11">
             <div style={{ paddingLeft: "1rem" }}>

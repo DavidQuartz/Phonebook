@@ -6,6 +6,7 @@ import { createContact } from "../../API_CALLS/mainAPIs";
 import { isAuthenticated } from "../../API_CALLS/authAPIs";
 import ShowError from "../Utilities/ShowError";
 import LoadingButton from "../Utilities/LoadingButton";
+import Avatar from "../Avatar/Avatar";
 
 const CreateContact = ({ show, onHide, close }) => {
   let { utils, dispatch } = useContext(ContactsContext);
@@ -111,7 +112,7 @@ const CreateContact = ({ show, onHide, close }) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Add a new contact
+          <Avatar name={firstName} className="contact-circle large" />
         </Modal.Title>
       </Modal.Header>
       <form className="create-contact" onSubmit={handleSubmit}>
