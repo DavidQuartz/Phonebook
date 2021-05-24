@@ -2,7 +2,7 @@
   "name": "telephone-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://phonebook-weeskillz.herokuapp.com",
+  "homepage": "https://phonebook-weskillz.herokuapp.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -43,6 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "12.18.4"
   },
   "devDependencies": {
     "gh-pages": "^3.1.0"
