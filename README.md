@@ -21,3 +21,5 @@ This app is a simple phone book app built with create react app.
     4. View one contact
     5. Edit Contact
     6. Delete Contact
+
+[Click here to view a live demo](https://phonebook-weskillz.herokuapp.com/)
