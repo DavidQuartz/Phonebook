@@ -17,6 +17,7 @@ This app is a simple phone book app built with create react app.
 
     1. Login
     2. Create Contact
-    3. View Contacts
-    4. Edit Contact
-    5. Delete Contact
+    3. View all Contacts
+    4. View one contact
+    5. Edit Contact
+    6. Delete Contact
