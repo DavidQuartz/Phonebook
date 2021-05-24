@@ -1,11 +1,7 @@
 import AuthCard from "../../components/AuthCard/AuthCard";
 
 const LoginPage = () => {
-  return (
-    <>
-      <AuthCard />
-    </>
-  );
+  return <AuthCard />;
 };
 
 export default LoginPage;
