@@ -12,7 +12,7 @@ const NoPageFound = () => {
     <div style={style}>
       <h1 style={{ fontSize: "5rem", color: "#00955c" }}>404</h1>
       No Page found. <br />
-      Click the Login button to be redirected to Login page
+      <a href="/">Go back to a valid page</a>
     </div>
   );
 };
