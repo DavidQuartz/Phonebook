@@ -15,8 +15,7 @@ const NavBar = () => {
   const logInOrOut = () => {
     if (isAuthenticated()) {
       signout(() => (window.location.href = "/app"));
-    }
-    return false;
+    } else return (window.location.href = "/");
   };
 
   return (
