@@ -9,7 +9,7 @@ const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard"));
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Phonebook">
       <Switch>
         <Suspense
           fallback={
