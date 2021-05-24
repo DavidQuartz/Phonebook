@@ -1,7 +1,7 @@
 import database from "../FireBase/firebase.config";
 
 export const contactsReducer = (state, action) => {
-  const { contacts } = state;
+  let { contacts } = state;
 
   switch (action.type) {
     case "FETCHING_CONTACTS":
@@ -14,25 +14,6 @@ export const contactsReducer = (state, action) => {
         ...state,
         fetchingContacts: false,
         error: false,
-      };
-    case "DELETE_CONTACT":
-      database
-        .collection("Contact")
-        .doc(action.id)
-        .delete()
-        .then((res) => res)
-        .catch((error) => {
-          console.error("Error removing document: ", error);
-        });
-
-      // remove contact from list
-      const newContacts = contacts.filter((contact) => {
-        return contact.id !== action.id;
-      });
-      // return new state, udating the contacts
-      return {
-        ...state,
-        contacts: newContacts,
       };
 
     case "ADD_CONTACT":
@@ -49,6 +30,58 @@ export const contactsReducer = (state, action) => {
           ...contacts,
         ],
       };
+
+    case "DELETE_CONTACT":
+      // remove the contact from  firebase database
+      database
+        .collection("Contact")
+        .doc(action.id)
+        .delete()
+        .then((res) => res)
+        .catch((error) => {
+          return {
+            ...state,
+            error: error.message,
+          };
+        });
+
+      // remove contact from list
+      const newContacts = contacts.filter((contact) => {
+        return contact.id !== action.id;
+      });
+
+      // return new state, udating the contacts list
+      return {
+        ...state,
+        contacts: newContacts,
+      };
+
+    case "UPDATE_CONTACT":
+      const { updatedContact } = action;
+
+      // update the contact in firebase database
+      database
+        .collection("Contact")
+        .doc(updatedContact.id)
+        .update(updatedContact)
+        .then((res) => {})
+        .catch((error) => {
+          return {
+            ...state,
+            error: error.message,
+          };
+        });
+
+      // update the contact in the global state
+      for (let index = 0; index < contacts.length; index++) {
+        if (contacts[index].id === updatedContact.id) {
+          contacts[index] = updatedContact;
+          break;
+        }
+      }
+
+      // return new state after udating the contacts list
+      return state;
 
     case "UPDATE_LOADING":
       return {
