@@ -63,18 +63,24 @@ const ViewContact = ({
               <i className="fas fa-times" onClick={handleClose} />
             </div>
           </div>
-          <div className="d-flex">
-            <Avatar name={firstName} className="contact-circle m-3" />
-            <h2 className="m-3">
-              {firstName} {lastName}
-            </h2>
+          <div className="d-flex align-items-center">
+            <div>
+              <Avatar name={firstName} className="contact-circle m-3" />
+            </div>
+            <div>
+              <h2 className="m-2">
+                {firstName} {lastName}
+              </h2>
+            </div>
           </div>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <hr />
-        <p>Phone: {phoneNumber}</p>
-        <p>Email address: {address}</p>
+        <div style={{ wordBreak: "break-word" }}>
+          <p>Phone: {phoneNumber}</p>
+          <p>Email address: {address}</p>
+        </div>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
