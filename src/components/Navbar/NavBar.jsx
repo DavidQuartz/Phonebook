@@ -4,6 +4,7 @@ import { isAuthenticated, signout } from "../../API_CALLS/authAPIs";
 const NavBar = () => {
   const [buttonText, setButtonText] = useState("Login");
 
+  // if user is logged in, change text to Logout
   useEffect(() => {
     if (isAuthenticated()) {
       setButtonText("Logout");
@@ -21,7 +22,9 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <h1>Phonebook</h1>
-      <button onClick={logInOrOut}>{buttonText}</button>
+      <button type="button" onClick={logInOrOut}>
+        {buttonText}
+      </button>
     </div>
   );
 };

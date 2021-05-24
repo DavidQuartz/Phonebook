@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 
+// error alert component
 const ShowError = ({ error }) => {
   return (
     <div

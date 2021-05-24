@@ -6,6 +6,7 @@ import { contactsReducer } from "../Reducers/ContactsReducer";
 export const ContactsContext = createContext();
 
 const ContactsContextProvider = (props) => {
+  // App global state
   const [utils, dispatch] = useReducer(contactsReducer, {
     loading: false,
     fetchingContacts: false,
@@ -23,8 +24,6 @@ const ContactsContextProvider = (props) => {
       if (user) {
         const snapshot = await database.collection("Contact").get();
         snapshot.forEach((doc) => {
-          // console.log(doc.id, "=>", doc.data());
-
           // make sure to populate only docs which were created by current user
           // also make sure doc has firstName for use in green circle div
           if (doc.data().firstName && doc.data().userId === user.id)
@@ -49,11 +48,10 @@ const ContactsContextProvider = (props) => {
 
   useEffect(() => {
     let mounted = true;
-
     if (mounted) fetchContacts();
 
+    // cleanup
     return () => {
-      // cleanup
       mounted = false;
     };
   }, [fetchContacts]);

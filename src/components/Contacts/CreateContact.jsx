@@ -21,12 +21,9 @@ const CreateContact = ({ show, onHide, close }) => {
 
   const { firstName, lastName, phoneNumber, address } = contactForm;
 
-  let accessToken;
-  if (isAuthenticated()) {
-    var { token } = isAuthenticated();
-
-    accessToken = token.accessToken;
-  }
+  // Get the user's access token
+  var { token } = isAuthenticated();
+  const accessToken = token.accessToken;
 
   // to close the modal after contact it created
   const handleClose = () => close(false);
@@ -45,6 +42,7 @@ const CreateContact = ({ show, onHide, close }) => {
         });
       }
 
+      // if there was an error
       if (data.code) {
         dispatch({ type: "UPDATE_LOADING", loading: false });
         return dispatch({
@@ -63,11 +61,11 @@ const CreateContact = ({ show, onHide, close }) => {
         type: "ADD_CONTACT",
         newContact: {
           ...contactForm,
+          id: data.id, // set the id to id from response payload
         },
       });
 
       setContactForm({
-        id: data.id,
         firstName: "",
         lastName: "",
         phoneNumber: "",
@@ -79,6 +77,8 @@ const CreateContact = ({ show, onHide, close }) => {
 
   const handleChange = (e) => {
     let { value, name } = e.target;
+
+    // clear error and loading anytime user begins typing
     dispatch({ type: "UPDATE_LOADING", loading: false });
     dispatch({
       type: "UPDATE_ERROR",
@@ -90,6 +90,8 @@ const CreateContact = ({ show, onHide, close }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // clear error and loading anytime user submits form to keep feedback fresh
     dispatch({ type: "UPDATE_LOADING", loading: false });
     dispatch({
       type: "UPDATE_ERROR",
