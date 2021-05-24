@@ -26,6 +26,7 @@ export const isAuthenticated = () => {
   return false;
 };
 
+// add logged in user info to localStorage
 export const authenticate = (data, next) => {
   if (typeof window !== "undefined") {
     localStorage.setItem("loggedIn", JSON.stringify(data));
@@ -33,6 +34,7 @@ export const authenticate = (data, next) => {
   }
 };
 
+// clear logged in user info from localStorage
 export const signout = (next) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("loggedIn");

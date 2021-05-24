@@ -2,21 +2,21 @@ import { useState, useContext } from "react";
 import { ContactsContext } from "../../ContactsContext/ContactsContext";
 import ShowError from "../Utilities/ShowError";
 import LoadingButton from "../Utilities/LoadingButton";
-
 import { login, authenticate, isAuthenticated } from "../../API_CALLS/authAPIs";
 
 const AuthCard = () => {
+  // if user is signed in, redirect to dashboard
   (function redirectUser() {
     if (isAuthenticated()) {
       return (window.location.href = "/app");
     }
   })();
 
-  let { utils, dispatch } = useContext(ContactsContext);
+  let { utils, dispatch } = useContext(ContactsContext); // accessing context for global state
 
   const [userInput, setUserInput] = useState({
-    email: "quartzdavid@gmail.com",
-    password: "reacted123",
+    email: "",
+    password: "",
   });
 
   const { email, password } = userInput;
@@ -28,6 +28,7 @@ const AuthCard = () => {
 
     login(info).then((data) => {
       if (!data) {
+        // if no data comes back, likely a server or internet problem
         dispatch({ type: "UPDATE_LOADING", loading: false });
         dispatch({
           type: "UPDATE_ERROR",
@@ -38,10 +39,11 @@ const AuthCard = () => {
       }
 
       if (data.code) {
+        // if there is an error
         dispatch({ type: "UPDATE_LOADING", loading: false });
         dispatch({
           type: "UPDATE_ERROR",
-          error: data.message,
+          error: data.message, //update error with message
         });
 
         return;
@@ -64,6 +66,7 @@ const AuthCard = () => {
     });
   };
 
+  // onChange handler for input fields
   const handleChange = (e) => {
     const { value, name } = e.target;
     dispatch({ type: "UPDATE_LOADING", loading: false });
@@ -74,6 +77,7 @@ const AuthCard = () => {
     setUserInput({ ...userInput, [name]: value });
   };
 
+  // Login button click handler
   const handleLoginClick = (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_LOADING", loading: false });
