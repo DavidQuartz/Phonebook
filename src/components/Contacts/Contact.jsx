@@ -1,13 +1,20 @@
 import { useState } from "react";
 import UpdateContact from "./UpdateContact";
 import Avatar from "../Avatar/Avatar";
+import ViewContact from "./ViewContact";
 
 const Contact = ({ contact, dispatch }) => {
   const [updateContactModal, setUpdateContactModal] = useState(false); // for createContact Modal
+  const [viewContactModal, setViewContactModal] = useState(false); // for viewContact Modal
 
   return (
     <>
-      <tr className="contact-row">
+      <tr
+        className="contact-row"
+        onClick={(e) =>
+          e.target.tagName.toLowerCase() !== "i" && setViewContactModal(true)
+        }
+      >
         <td>
           <div className="col-1">
             <Avatar name={contact.firstName} className="contact-circle" />
@@ -32,6 +39,7 @@ const Contact = ({ contact, dispatch }) => {
           <div className="col4-row1" style={{ width: "20rem", height: "3rem" }}>
             <i
               className="fas fa-pencil-alt"
+              value="edit"
               onClick={() => setUpdateContactModal(true)}
             />
             <i
@@ -48,10 +56,16 @@ const Contact = ({ contact, dispatch }) => {
       </tr>
       <UpdateContact
         contact={contact}
-        dispatch={dispatch}
         show={updateContactModal}
         onHide={() => setUpdateContactModal(false)}
         close={setUpdateContactModal}
+      />
+      <ViewContact
+        contact={contact}
+        show={viewContactModal}
+        onHide={() => setViewContactModal(false)}
+        close={setViewContactModal}
+        setUpdateContactModal={setUpdateContactModal}
       />
     </>
   );
