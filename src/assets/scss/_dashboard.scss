@@ -196,4 +196,12 @@ hr {
       cursor: pointer;
     }
   }
+
+  @media #{$xs-layout} {
+    width: 30rem;
+
+    div {
+      width: 25%;
+    }
+  }
 }
