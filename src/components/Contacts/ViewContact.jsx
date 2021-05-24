@@ -11,7 +11,7 @@ const ViewContact = ({
   contact,
   setUpdateContactModal,
 }) => {
-  let { utils, dispatch } = useContext(ContactsContext);
+  let { dispatch } = useContext(ContactsContext);
 
   const [person, setPerson] = useState({});
 
