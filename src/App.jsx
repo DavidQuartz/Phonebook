@@ -16,26 +16,26 @@ const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard"));
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Suspense
-          fallback={
-            <div className="phonebook-preloader-wrapper">
-              <div className="phonebook-preloader">
-                <span></span>
-                <span></span>
-              </div>
+      <Suspense
+        fallback={
+          <div className="phonebook-preloader-wrapper">
+            <div className="phonebook-preloader">
+              <span></span>
+              <span></span>
             </div>
-          }
-        >
-          <ContactsContextProvider>
-            <Navbar />
+          </div>
+        }
+      >
+        <ContactsContextProvider>
+          <Navbar />
+          <Switch>
             <Route exact path="/" component={Login} />
             <PrivateRoute exact path="/app" component={Dashboard} />
-          </ContactsContextProvider>
-          <Route exact path="/404" component={NoPageFound} />
-          <Redirect to="/404" />
-        </Suspense>
-      </Switch>
+            <Route exact path="/404" component={NoPageFound} />
+            <Redirect to="/404" />
+          </Switch>
+        </ContactsContextProvider>
+      </Suspense>
     </Router>
   );
 };
