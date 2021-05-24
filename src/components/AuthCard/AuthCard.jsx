@@ -96,6 +96,7 @@ const AuthCard = () => {
         <div className="form-group">
           <label htmlFor="email">Email Address</label> <br />
           <input
+            required
             name="email"
             value={email}
             onChange={handleChange}
@@ -107,6 +108,7 @@ const AuthCard = () => {
         <div className="form-group">
           <label htmlFor="email">Password</label> <br />
           <input
+            required
             name="password"
             value={password}
             onChange={handleChange}
