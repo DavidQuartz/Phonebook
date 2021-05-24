@@ -78,17 +78,6 @@
         align-items: center;
       }
 
-      .contact-circle {
-        height: 3.2rem;
-        width: 3.2rem;
-        // margin-right: 1.5rem;
-        background-color: $green;
-        color: white;
-        text-align: center;
-        font-size: 1.7rem;
-        border-radius: 50%;
-      }
-
       &:last-of-type {
         text-align: right;
         position: relative;
@@ -163,5 +152,22 @@
         bottom: 0rem;
       }
     }
+  }
+}
+
+.contact-circle {
+  height: 3.2rem;
+  width: 3.2rem;
+  // margin-right: 1.5rem;
+  background-color: $green;
+  color: white;
+  text-align: center;
+  font-size: 1.7rem;
+  border-radius: 50%;
+
+  &.large {
+    height: 6rem;
+    width: 6rem;
+    font-size: 3rem;
   }
 }
