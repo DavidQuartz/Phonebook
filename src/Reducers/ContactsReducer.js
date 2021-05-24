@@ -9,6 +9,7 @@ export const contactsReducer = (state, action) => {
         ...state,
         fetchingContacts: true,
       };
+
     case "DONE_FETCHING_CONTACTS":
       return {
         ...state,
