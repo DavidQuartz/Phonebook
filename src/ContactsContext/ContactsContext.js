@@ -25,8 +25,7 @@ const ContactsContextProvider = (props) => {
         const snapshot = await database.collection("Contact").get();
         snapshot.forEach((doc) => {
           // make sure to populate only docs which were created by current user
-          // also make sure doc has firstName for use in green circle div
-          if (doc.data().firstName && doc.data().userId === user.id)
+          if (doc.data().userId === user.id)
             dispatch({
               type: "ADD_CONTACT",
               newContact: {
