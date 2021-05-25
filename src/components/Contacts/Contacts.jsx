@@ -19,25 +19,28 @@ const Contacts = () => {
       />
     </div>
   ) : contacts && contacts.length > 0 ? ( // if there are one or more contacts
-    <table className="table">
-      <thead className="thead-inverse">
-        <tr>
-          <th>Name</th>
-          <th>Phone number</th>
-          <th>Email address</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Contacts ({contacts.length})</td>
-          <td>{error && <ShowError error={error} />}</td>
-        </tr>
-        {contacts.map((contact, index) => (
-          <Contact key={index} contact={contact} dispatch={dispatch} />
-        ))}
-      </tbody>
-    </table>
+    <>
+      {error && <ShowError error={error} />}
+      <table className="table">
+        <thead className="thead-inverse">
+          <tr>
+            <th>Name</th>
+            <th>Phone number</th>
+            <th>Email address</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Contacts ({contacts.length})</td>
+            <td></td>
+          </tr>
+          {contacts.map((contact, index) => (
+            <Contact key={index} contact={contact} dispatch={dispatch} />
+          ))}
+        </tbody>
+      </table>
+    </>
   ) : (
     // if there are no contacts
     <div>
